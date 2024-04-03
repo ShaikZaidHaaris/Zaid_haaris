@@ -1,0 +1,26 @@
+import pandas as pd
+
+def check_csv_parameters(csv_file):
+    # Read the CSV file into a DataFrame
+    df = pd.read_csv(csv_file)
+    
+    # Initialize an empty dictionary to store parameter bounds
+    parameter_bounds = {}
+    
+    # Iterate through each column (parameter) in the DataFrame
+    for column in df.columns:
+        # Calculate the minimum and maximum values for the parameter
+        min_value = df[column].min()
+        max_value = df[column].max()
+        
+        # Store the bounds in the dictionary
+        parameter_bounds[column] = {'min': min_value, 'max': max_value}
+    
+    # Return the dictionary containing parameter bounds
+    return parameter_bounds
+
+# Example usage:
+csv_file_path = 'your_csv_file.csv'
+bounds = check_csv_parameters(csv_file_path)
+for parameter, bound in bounds.items():
+    print(f"Parameter: {parameter}, Min: {bound['min']}, Max: {bound['max']}")
