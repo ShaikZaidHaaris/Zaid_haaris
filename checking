@@ -20,7 +20,7 @@ def check_csv_parameters(csv_file):
     return parameter_bounds
 
 # Example usage:
-csv_file_path = 'your_csv_file.csv'
+csv_file_path = 'movie_data2.csv'
 bounds = check_csv_parameters(csv_file_path)
 for parameter, bound in bounds.items():
     print(f"Parameter: {parameter}, Min: {bound['min']}, Max: {bound['max']}")
